@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Shree Ramnath Foundation</title>
+    <link rel="icon" type="image/svg+xml" href="/images/foundation_icon.png" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .section1 {
+            margin-top: 95px;
+            /* padding: 20px; */
+            /* background-color: #e9fdea; */
+            font-size: 16px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .section1 img {
+            width: 100vw;
+            height: 70vh;
+            opacity: 0.8;
+        }
+
+        .contact-section {
+            background: #d1f3d3;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info,
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .contact-info li {
+            list-style-type: disc;
+            padding: 0;
+        }
+
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-form h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .contact-form p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            font-size: 14px;
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row .half {
+            flex: 1;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .captcha-placeholder {
+            background: #f3f3f3;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 20px;
+            margin: 10px 0;
+            color: #555;
+            font-size: 13px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: white;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button[type="submit"]:hover {
+            background: #222;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="images/logo.png" alt="logo" />
+            <div class="nav_button">
+                <li><a href="index.html" class="nav-link">ABOUT</a></li>
+                <li><a href="ourwork.html" class="nav-link">OUR WORK</a></li>
+                <li><a href="campaings.html" class="nav-link">CAMPAINGS</a></li>
+                <li><a href="getinvolved.html" class="nav-link">GET INVOLVED</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                <li><button onclick="window.location.href='donate.html'">DONATE</button></li>
+
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="section1">
+        <img src="images/contact_img.png" alt="contact">
+
+    </section>
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>FOR CORPORATE PARTNERSHIPS</h3>
+                <p>Parul Sharma – 9266740073<br><a
+                        href="mailto:cp@smilefoundationindia.org">cp@smilefoundationindia.org</a></p>
+
+                <h3>DONATION RELATED QUERIES</h3>
+                <li><strong>FOR NEW DONORS</strong>
+                    <p>Akanksha Wahi – 7042128777<br><a
+                            href="mailto:donation@smilefoundationindia.org">donation@smilefoundationindia.org</a></p></li>
+                <li><strong>FOR EXISTING DONORS</strong>
+                    <p>Parul Kapoor – 8882517003<br><a
+                            href="mailto:donorcare@smilefoundationindia.org">donorcare@smilefoundationindia.org</a></p></li>
+                <li><strong>FOR ALL GENERAL QUERIES</strong>
+                    <p><a href="mailto:info@smilefoundationindia.org">info@smilefoundationindia.org</a></p></li>
+                
+
+                
+
+                
+            </div>
+
+            <div class="contact-form" >
+                <h3>HELPDESK</h3>
+                <p>For any grievance, suggestions and queries kindly write to us.</p>
+
+                <form id="contactForm" method="POST" action="send.php">
+                    <label>Name <span>*</span></label>
+                    <input type="text" name="name" placeholder="Name" required />
+
+                    <div class="form-row">
+                        <div class="half">
+                            <label>Phone <span>*</span></label>
+                            <input type="tel" name="Mobile" pattern="[0-9]{10}" maxlength="10" placeholder="Phone" required />
+                        </div>
+                        <div class="half">
+                            <label>Email <span>*</span></label>
+                            <input type="email" name="email" placeholder="Email" required />
+                        </div>
+                    </div>
+
+                    <label>Message <span>*</span></label>
+                    <textarea name="message" placeholder="Message" required></textarea>
+
+                    <button type="submit">SUBMIT</button>
+                </form>
+                <div id="responseMessage"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-message">
+                <img src="https://static.wixstatic.com/media/2cdbfc_4493008c02e5438f9213540c254bd076~mv2.png/v1/fill/w_44,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/13%2C3%20(5).png"
+                    alt="Heart Icon">
+                <p>All our efforts are made possible only because of your support.</p>
+            </div>
+            <div class="footer-message">
+                <img src="https://static.wixstatic.com/media/2cdbfc_f9080a11c6eb4d41929e85c098f91d53~mv2.png/v1/fill/w_44,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/13%2C3%20(9).png"
+                    alt="Tax Icon">
+                <p>Your donations are tax exempted under 80G of the Indian Income Tax Act.</p>
+            </div>
+            <div class="footer-message">
+                <img src="https://static.wixstatic.com/media/2cdbfc_6aa6d0167b084267b90e78b554d6b5b9~mv2.png/v1/fill/w_44,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/13%2C3%20(8).png"
+                    alt="Secure Icon">
+                <p>Your donation transactions are completely safe and secure.</p>
+            </div>
+        </div>
+
+
+        <div class="footer-main">
+            <div class="footer-left">
+                <h3>Shree Ramnath Foundation</h3>
+                <p><strong>Email:</strong> connect@marpu.org</p>
+                <p><strong>Phone:</strong> 79997801001</p>
+                <p><strong>Charity ID:</strong> AAGTM4991A</p>
+                <img src="images/logo.png" alt="Logo" class="footer-logo">
+            </div>
+
+            <div class="footer-right">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">About Shree Ramnath Foundation</a></li>
+                    <li><a href="ourwork.html">Our Work</a></li>
+                    <li><a href="campaings.html">Campaings</a></li>
+                    <li><a href="getinvolved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-icons">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2020 by Shree Ramnath Foundation | <a href="TCRp.html">Terms, Conditions & Refund Policy</a> | <a
+                    href="Privacy.html">Privacy
+                    Policy</a></p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Ramnath Foundation</title>
+    <link rel="icon" type="image/svg+xml" href="/images/foundation_icon.png" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        .section1 {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            /* z-index: -1; */
+            /* Places it behind the content */
+            /* overflow: hidden; */
+            /* font-family: 'Poppins', sans-serif; */
+            margin: 0;
+            margin-top: 95px;
+            /* padding: 15px 0; */
+            /* height: 90vh; */
+            /* background-color: #0707075d; */
+            background-color: #0000009d;
+            /* color: #333; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* text-align: center; */
+            /* z-index: 1; */
+        }
+
+        .section1::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://static.wixstatic.com/media/2cdbfc_cf1b36190dfc46598c48c7606bbc008a~mv2.jpg/v1/fill/w_2268,h_1229,al_c,q_90,enc_avif,quality_auto/2cdbfc_cf1b36190dfc46598c48c7606bbc008a~mv2.jpg") no-repeat center center/cover;
+            /* background-attachment: fixed; */
+            /* opacity: 0.7; */
+            /* Adjust this value for desired transparency */
+            z-index: -1;
+
+        }
+
+        .intro {
+            color: white;
+            text-align: center;
+            padding-top: 30px;
+            max-width: 100vw;
+            letter-spacing: 1px;
+        }
+
+        .intro h1 {
+            margin-bottom: 10px;
+            font-size: 40px;
+        }
+
+        .intro p {
+            /* margin-bottom: 10px; */
+            font-size: 20px;
+        }
+
+        /* section 2 styling */
+        .section2 {
+            /* background-color: #fdf2e9; */
+            background-color: #e9fdea;
+            padding: 80px 40px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .highlighted {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 40px;
+            color: #444;
+        }
+
+        .volunteer-text,
+        .accent {
+            color: #21d316;
+        }
+
+        /* About Image */
+        .about-image img {
+            width: 100%;
+            max-width: 900px;
+            margin: 50px 0;
+        }
+
+        /* Mission Vision */
+        .mission-vision {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .mission,
+        .vision {
+            flex: 1 1 40%;
+            max-width: 500px;
+        }
+
+        .mission h4,
+        .vision h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .mission p,
+        .vision p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+
+
+
+
+        /* our impact section */
+        .impact-section {
+            /* background-color: #f0f0f0; */
+            margin-top: 80px;
+            text-align: center;
+            padding: 60px 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .impact-heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #111;
+        }
+
+        /* for scrolling effect */
+        .impact-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .impact-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .impact-heading .accent {
+            color: #21d316;
+        }
+
+        .impact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .impact-box {
+            flex: 1 1 200px;
+            max-width: 250px;
+        }
+
+        .impact-box h3 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #21d316;
+            margin-bottom: 10px;
+        }
+
+        .impact-box .label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #21d316;
+            margin-bottom: 10px;
+        }
+
+        .impact-box .desc {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Quote Box */
+        /* .quote-box {
+    background-color: #21d316;
+    color: white;
+    padding: 15px;
+    margin-top: 80px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    
+}
+
+.quote-box blockquote {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.quote-box footer {
+    margin-top: 20px;
+    font-size: 16px;
+} */
+
+        /* section 3 styling */
+        section#section3 {
+            /* background-color: #e6e8fc; */
+            background-color: #9bfda667;
+            padding: 60px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-in-out;
+        }
+
+        section#section3.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #section3 h2 {
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            padding: 40px 30px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .environmental {
+            background-color: #8cc63f;
+        }
+
+        .economic {
+            background-color: #00aef0;
+        }
+
+        .social {
+            background-color: #ee3d75;
+        }
+
+        .partnerships {
+            background-color: #111;
+        }
+
+        .icon img {
+            width: 240px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: disc;
+            text-align: left;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        #section3 strong {
+            color: #fff;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="images/logo.png" alt="logo" />
+            <div class="nav_button">
+                <li><a href="index.html" class="nav-link">ABOUT</a></li>
+                <li><a href="ourwork.html" class="nav-link">OUR WORK</a></li>
+                <li><a href="campaings.html" class="nav-link">CAMPAINGS</a></li>
+                <li><a href="getinvolved.html" class="nav-link">GET INVOLVED</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+                <li><button onclick="window.location.href='donate.html'">DONATE</button></li>
+
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="section1">
+        <div class="intro">
+            <h1>CHANGE WITHIN TO CHANGE THE WORLD</h1>
+            <p>SUSTAINABLE DEVELOPMENT GOALS | VOLUNTEERING | CREATIVE SOLUTIONS</p>
+
+        </div>
+    </section>
+
+    <section class="section2">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>ABOUT US</h2>
+                <p><strong>Shree Ramnath Foundation </strong> – a beacon of service and transformation was founded in
+                    2025 with a vision to uplift and empower underserved communities across India. Rooted in compassion
+                    and guided by purpose, we strive to bridge the gap between need and opportunity through holistic
+                    development.
+                    At Shree Ramnath Foundation, we channel collective strength into impactful action. Our focus spans
+                    across <strong>healthcare, education, women and child welfare, skill development, and environmental
+                        sustainability.</strong> With a passionate team and community-driven approach, we provide
+                    meaningful support to children, families, the elderly, and the differently-abled.
+
+                    We don’t just respond to issues—we anticipate, innovate, and act with empathy. From conducting free
+                    medical camps and disaster relief to abolishing social evils like child marriage and bonded labor,
+                    our initiatives aim to build a just and dignified society for all.
+
+                    Driven by our mission of inclusive growth and our vision of a transformed India, we collaborate with
+                    governments, corporations, and the public to amplify our reach and impact.
+
+                    Join us in shaping a future where every voice is heard, every life is valued, and every individual
+                    has the power to rise.</p>
+                <h2 class="highlighted">ONE OF INDIA'S LARGEST <span class="volunteer-text">VOLUNTEER</span>
+                    ORGANISATION
+                </h2>
+            </div>
+
+            <div class="about-image">
+                <img src="https://static.wixstatic.com/media/2cdbfc_92326ae264c547afb8a8ff8428cf3e5b~mv2.png/v1/crop/x_0,y_0,w_5760,h_2646/fill/w_979,h_450,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design%20(1).png"
+                    alt="About Illustration">
+            </div>
+
+            <div class="mission-vision">
+                <div class="mission">
+                    <h4>OUR <span class="accent">MISSION</span></h4>
+                    <p>To empower underserved communities with access to education, healthcare, and livelihoods while
+                        advancing equality, sustainability, and a life of dignity for all.</p>
+                </div>
+                <div class="vision">
+                    <h4>OUR <span class="accent">VISION</span></h4>
+                    <p>To build an inclusive, just, and healthy society where everyone, regardless of background, can
+                        thrive, contribute meaningfully, and live with dignity and purpose.</p>
+                </div>
+            </div>
+
+            <!-- our impact section -->
+            <div class="impact-section">
+                <h2 class="impact-heading">OUR <span class="accent">IMPACT</span></h2>
+                <div class="impact-container">
+                    <div class="impact-box">
+                        <h3 data-target="20">0+</h3>
+                        <p class="label">LAC</p>
+                        <p class="desc">children and their families are impacted every year</p>
+                    </div>
+                    <div class="impact-box">
+                        <h3 data-target="2000">0+</h3>
+                        <p class="label">VILLAGES</p>
+                        <p class="desc">and slums are reached out to across the country</p>
+                    </div>
+                    <div class="impact-box">
+                        <h3 data-target="400">0+</h3>
+                        <p class="label">PROJECTS</p>
+                        <p class="desc">focused on education, healthcare, and women empowerment</p>
+                    </div>
+                    <div class="impact-box">
+                        <h3 data-target="27">0+</h3>
+                        <p class="label">STATES</p>
+                        <p class="desc">are reached including the remotest areas</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="section3">
+        <h2>OUR WORK THEME</h2>
+        <div class="container">
+            <div class="column environmental">
+                <div class="icon">
+                    <img src="https://static.wixstatic.com/media/2cdbfc_dac2dd2bc36c42c99cef4fde67700e06~mv2.png/v1/fill/w_240,h_135,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png"
+                        alt="Environmental Sustainability">
+                </div>
+                <h3>ENVIRONMENTAL SUSTAINABILITY</h3>
+                <ul>
+                    <li><strong>SDG 6:</strong> Clean Water and Sanitation</li>
+                    <li><strong>SDG 7:</strong> Affordable and Clean Energy</li>
+                    <li><strong>SDG 11:</strong> Sustainable Cities and Communities</li>
+                    <li><strong>SDG 12:</strong> Responsible Consumption and Production</li>
+                    <li><strong>SDG 13:</strong> Climate Action</li>
+                    <li><strong>SDG 14:</strong> Life Below Water</li>
+                    <li><strong>SDG 15:</strong> Life On Land</li>
+                </ul>
+            </div>
+            <div class="column economic">
+                <div class="icon">
+                    <img src="https://static.wixstatic.com/media/2cdbfc_8820c9deaeaa4dbfa1519633a3efd3c1~mv2.png/v1/fill/w_239,h_135,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4.png"
+                        alt="Economic Development">
+                </div>
+                <h3>ECONOMIC DEVELOPMENT</h3>
+                <ul>
+                    <li><strong>SDG 1:</strong> No Poverty</li>
+                    <li><strong>SDG 2:</strong> Zero Hunger</li>
+                    <li><strong>SDG 8:</strong> Decent Work and Economic Growth</li>
+                    <li><strong>SDG 9:</strong> Industry, Innovation, and Infrastructure</li>
+                    <li><strong>SDG 10:</strong> Reduced Inequalities</li>
+                </ul>
+            </div>
+            <div class="column social">
+                <div class="icon">
+                    <img src="https://static.wixstatic.com/media/2cdbfc_641cd8b07024499abff650973dab273a~mv2.png/v1/fill/w_240,h_135,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2.png"
+                        alt="Social Development">
+                </div>
+                <h3>SOCIAL DEVELOPMENT</h3>
+                <ul>
+                    <li><strong>SDG 3:</strong> Good Health and Well-Being</li>
+                    <li><strong>SDG 4:</strong> Quality Education</li>
+                    <li><strong>SDG 5:</strong> Gender Equality</li>
+                </ul>
+            </div>
+            <div class="column partnerships">
+                <div class="icon">
+                    <img src="https://static.wixstatic.com/media/2cdbfc_7d793e1857ba4910b8be7fc646af2620~mv2.png/v1/fill/w_256,h_144,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3.png"
+                        alt="Partnerships for the Goal">
+                </div>
+                <h3>PARTNERSHIPS FOR THE GOAL</h3>
+                <ul>
+                    <li><strong>SDG 17:</strong> Partnerships for the Goals</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-message">
+                <img src="https://static.wixstatic.com/media/2cdbfc_4493008c02e5438f9213540c254bd076~mv2.png/v1/fill/w_44,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/13%2C3%20(5).png"
+                    alt="Heart Icon">
+                <p>All our efforts are made possible only because of your support.</p>
+            </div>
+            <div class="footer-message">
+                <img src="https://static.wixstatic.com/media/2cdbfc_f9080a11c6eb4d41929e85c098f91d53~mv2.png/v1/fill/w_44,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/13%2C3%20(9).png"
+                    alt="Tax Icon">
+                <p>Your donations are tax exempted under 80G of the Indian Income Tax Act.</p>
+            </div>
+            <div class="footer-message">
+                <img src="https://static.wixstatic.com/media/2cdbfc_6aa6d0167b084267b90e78b554d6b5b9~mv2.png/v1/fill/w_44,h_25,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/13%2C3%20(8).png"
+                    alt="Secure Icon">
+                <p>Your donation transactions are completely safe and secure.</p>
+            </div>
+        </div>
+
+
+        <div class="footer-main">
+            <div class="footer-left">
+                <h3>Shree Ramnath Foundation</h3>
+                <p><strong>Email:</strong> connect@marpu.org</p>
+                <p><strong>Phone:</strong> 79997801001</p>
+                <p><strong>Charity ID:</strong> AAGTM4991A</p>
+                <img src="images/logo.png" alt="Logo" class="footer-logo">
+            </div>
+
+            <div class="footer-right">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">About Shree Ramnath Foundation</a></li>
+                    <li><a href="ourwork.html">Our Work</a></li>
+                    <li><a href="campaings.html">Campaings</a></li>
+                    <li><a href="getinvolved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="http://google.com"><i class="fab fa-instagram"></i></a>
+            <a href="http://google.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://google.com"><i class="fab fa-twitter"></i></a>
+            <a href="http://google.com"><i class="fab fa-linkedin-in"></i></a>
+            <a href="http://google.com"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2020 by Shree Ramnath Foundation | <a href="TCRp.html">Terms, Conditions & Refund Policy</a> | <a
+                    href="Privacy.html">Privacy
+                    Policy</a></p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        //for getting numbers in section 2 changes dynamically
+
+
+        function animateCount(el, target) {
+            let count = 0;
+            const speed = target / 100; // smaller = slower
+            const interval = setInterval(() => {
+                count += speed;
+                if (count >= target) {
+                    count = target;
+                    clearInterval(interval);
+                }
+                el.textContent = Math.floor(count) + "+";
+            }, 20);
+        }
+
+        function handleScrollAnimation() {
+            const section = document.querySelector(".impact-section");
+            const boxes = document.querySelectorAll(".impact-box h3");
+
+            const sectionTop = section.getBoundingClientRect().top;
+            const triggerPoint = window.innerHeight * 0.8;
+
+            if (sectionTop < triggerPoint && !section.dataset.animated) {
+                boxes.forEach(h3 => {
+                    const target = +h3.dataset.target;
+                    animateCount(h3, target);
+                });
+                section.dataset.animated = "true";
+            }
+        }
+
+        window.addEventListener("scroll", handleScrollAnimation);
+
+        // scrolling effect for section 2
+        const section2 = document.querySelector('.impact-section');
+
+        const section2Observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    section2.classList.add('visible');
+                    section2Observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        section2Observer.observe(section2);
+
+        // scrolling effect for section 3
+        const section3 = document.getElementById('section3');
+
+        const section3Observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    section3.classList.add('visible');
+                    section3Observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        section3Observer.observe(section3);
+
+        // scrolling effect for nav bar
+
+        let lastScrollTop = 0;
+        const nav = document.querySelector("nav");
+        const section1 = document.querySelector(".section1");
+
+        window.addEventListener("scroll", () => {
+            const section1Bottom = section1.getBoundingClientRect().bottom;
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Trigger effect after scrolling past half of section1
+            if (section1Bottom <= window.innerHeight / 2) {
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    nav.style.top = "-100px";
+                } else {
+                    // Scrolling up
+                    nav.style.top = "0";
+                }
+            } else {
+                // Always show nav while in first half of section1
+                nav.style.top = "0";
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+</body>
+
+</html>
