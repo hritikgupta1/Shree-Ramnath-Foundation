@@ -21,11 +21,12 @@
         .section1 img {
             width: 100vw;
             height: 70vh;
-            opacity: 0.8;
+            /* opacity: 0.8; */
         }
 
         .contact-section {
-            background: #d1f3d3;
+            /* background: #d1f3d3; */
+            background: linear-gradient(to right, #2e9d84, #3cbf88);
             padding: 40px 20px;
             font-family: Arial, sans-serif;
         }
@@ -56,6 +57,7 @@
             color: #333;
             margin-bottom: 20px;
         }
+
         .contact-info li {
             list-style-type: disc;
             padding: 0;
@@ -107,16 +109,6 @@
             height: 100px;
         }
 
-        .captcha-placeholder {
-            background: #f3f3f3;
-            border: 1px solid #ccc;
-            text-align: center;
-            padding: 20px;
-            margin: 10px 0;
-            color: #555;
-            font-size: 13px;
-        }
-
         button[type="submit"] {
             width: 100%;
             padding: 12px;
@@ -131,6 +123,10 @@
 
         button[type="submit"]:hover {
             background: #222;
+        }
+
+        iframe {
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -166,20 +162,23 @@
                 <h3>DONATION RELATED QUERIES</h3>
                 <li><strong>FOR NEW DONORS</strong>
                     <p>Akanksha Wahi – 7042128777<br><a
-                            href="mailto:donation@smilefoundationindia.org">donation@smilefoundationindia.org</a></p></li>
+                            href="mailto:donation@smilefoundationindia.org">donation@smilefoundationindia.org</a></p>
+                </li>
                 <li><strong>FOR EXISTING DONORS</strong>
                     <p>Parul Kapoor – 8882517003<br><a
-                            href="mailto:donorcare@smilefoundationindia.org">donorcare@smilefoundationindia.org</a></p></li>
+                            href="mailto:donorcare@smilefoundationindia.org">donorcare@smilefoundationindia.org</a></p>
+                </li>
                 <li><strong>FOR ALL GENERAL QUERIES</strong>
-                    <p><a href="mailto:info@smilefoundationindia.org">info@smilefoundationindia.org</a></p></li>
-                
+                    <p><a href="mailto:info@smilefoundationindia.org">info@smilefoundationindia.org</a></p>
+                </li>
 
-                
 
-                
+
+
+
             </div>
 
-            <div class="contact-form" >
+            <div class="contact-form">
                 <h3>HELPDESK</h3>
                 <p>For any grievance, suggestions and queries kindly write to us.</p>
 
@@ -190,7 +189,8 @@
                     <div class="form-row">
                         <div class="half">
                             <label>Phone <span>*</span></label>
-                            <input type="tel" name="Mobile" pattern="[0-9]{10}" maxlength="10" placeholder="Phone" required />
+                            <input type="tel" name="Mobile" pattern="[0-9]{10}" maxlength="10" placeholder="Phone"
+                                required />
                         </div>
                         <div class="half">
                             <label>Email <span>*</span></label>
@@ -205,6 +205,21 @@
                 </form>
                 <div id="responseMessage"></div>
             </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Find Us Map -->
+    <section id="find-us" style="padding: 40px 20px; background: linear-gradient(to right, #2e9d84, #3cbf88);">
+        <h2 style="text-align: center; font-size: 28px; margin-bottom: 20px; color: #333;">
+            Find Us Here
+        </h2>
+        <div
+            style="width: 100%; max-width: 1200px; margin: 0 auto; height: 500px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1751.8993033860147!2d77.281917!3d28.633744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfba8f905de7d%3A0x48b7cd5894d0b879!2sHira%20Sweets!5e0!3m2!1sen!2sin!4v1688648389381!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </section>
 
@@ -267,6 +282,34 @@
 
 
     <script src="script.js"></script>
+    <script>
+        // scrolling effect for nav bar
+
+        let lastScrollTop = 0;
+        const nav = document.querySelector("nav");
+        const section1 = document.querySelector(".section1");
+
+        window.addEventListener("scroll", () => {
+            const section1Bottom = section1.getBoundingClientRect().bottom;
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Trigger effect after scrolling past 1/8 of payment section
+            if (section1Bottom <= window.innerHeight/2) {
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    nav.style.top = "-100px";
+                } else {
+                    // Scrolling up
+                    nav.style.top = "0";
+                }
+            } else {
+                // Always show nav while in first half of section1
+                nav.style.top = "0";
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
 </body>
 
 </html>
