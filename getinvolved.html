@@ -9,7 +9,230 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            background: #fff;
+            color: #000000;
+        }
 
+        .hero {
+            position: relative;
+            /* padding: 5rem 2rem 2rem; */
+            /* text-align: center; */
+            height: 80vh;
+            width: 100vw;
+            margin-top: 95px;
+            background: #3838387a;
+            color: rgb(255, 255, 255);
+            padding: 15% 10%;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("images/getInvolved_bkg_img.jpg") no-repeat center/cover;
+            background-attachment: fixed;
+            /* opacity: 0.7; */
+            /* Adjust this value for desired transparency */
+            z-index: -1;
+
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #16fa0a;
+        }
+
+        .hero p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+
+        }
+
+        .section-content {
+            padding: 5rem 10rem;
+            background-color: #e9fdea;
+            text-align: center;
+        }
+
+        .section-content p {
+            text-align: justify;
+            font-size: large;
+        }
+
+        .section-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #21d316;
+        }
+
+        .testimonials-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 400px;
+            min-height: 180px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border-left: 5px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card p {
+            margin: 0 0 1rem;
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .testimonial-card strong {
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Accent borders */
+        .testimonial-card.green {
+            border-left-color: #a4e0c6;
+        }
+
+        .testimonial-card.pink {
+            border-left-color: #f7c6d9;
+        }
+
+        .testimonial-card.blue {
+            border-left-color: #c4e1f5;
+        }
+
+        .testimonial-card.yellow {
+            border-left-color: #ffd89e;
+        }
+
+        .testimonial-card.teal {
+            border-left-color: #b6e2d3;
+        }
+
+        .testimonial-card.purple {
+            border-left-color: #e1bee7;
+        }
+
+
+        .section {
+            padding: 3rem 15rem;
+            /* max-width: 1000px; */
+            margin: auto;
+            background-color: #aeffb2;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #21d316;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-container {
+            background: #f8cee4;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #a4e0c6;
+            color: #2c3e50;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8adbb4;
+        }
+
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +251,99 @@
             </div>
         </nav>
     </header>
+    <section class="hero">
+        <h1>Get Involved with Us</h1>
+        <p>Your little effort can make a big difference.</p>
+    </section>
 
+
+    <div class="section-content">
+        <h2>Why Your Support Matters</h2>
+        <p>At Shree Ramnath Foundation, we believe that change begins with individuals who care. Our volunteers and
+            supporters are the backbone of every successful campaign — from organizing blood donation drives to planting
+            trees and supporting senior citizens.</p>
+        <p>Whether you're a student, professional, homemaker, or retiree, there’s a place for you here. Join us in
+            transforming lives and building stronger, more compassionate communities.</p>
+    </div>
+
+    <div class="section">
+        <h2>Join the Movement</h2>
+        <div class="form-container">
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your name" required />
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Your email" required />
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" pattern="[0-9]{10}" maxlength="10" placeholder="Your phone number"
+                    required />
+
+                <label for="interest">How would you like to help?</label>
+                <select id="interest" required>
+                    <option value="">-- Select an option --</option>
+                    <option value="volunteer">Volunteer</option>
+                    <option value="donor">Donor</option>
+                    <option value="organize">Organize a campaign</option>
+                    <option value="promote">Promote on social media</option>
+                </select>
+
+                <label for="message">Tell us more</label>
+                <textarea id="message" rows="5" placeholder="Any message or idea you’d like to share?"
+                    required></textarea>
+
+                <button type="submit">
+                    <span id="btnText">SUBMIT</span>
+                    <span id="btnLoader" class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+            <div id="responseMessage"></div>
+        </div>
+    </div>
+
+    <div class="section-content">
+        <h2>What Our Volunteers Say</h2>
+        <div class="testimonials-wrapper">
+
+            <div class="testimonial-card green">
+                <p>"Being a part of SRF has been life-changing. I’ve seen the joy in children’s eyes when they receive
+                    books, and the gratitude of elders who now feel heard and valued."</p>
+                <strong>– Priya S., Volunteer</strong>
+            </div>
+
+            <div class="testimonial-card pink">
+                <p>"Volunteering in blood drives gave me a sense of purpose. SRF truly makes you feel like you're part
+                    of something greater."</p>
+                <strong>– Aman R., Donor</strong>
+            </div>
+
+            <div class="testimonial-card blue">
+                <p>"Planting trees with SRF during the 'Green Breath' campaign made me realize how impactful small steps
+                    for the planet can be."</p>
+                <strong>– Ritesh T., Environmental Volunteer</strong>
+            </div>
+
+            <div class="testimonial-card yellow">
+                <p>"I was amazed at how efficiently SRF managed to install clean water systems in remote villages. Proud
+                    to have been part of that journey."</p>
+                <strong>– Meena K., Water Campaign Supporter</strong>
+            </div>
+
+            <div class="testimonial-card teal">
+                <p>"The joy of gifting books to children during the ‘Books for All’ initiative is unmatched. SRF helped
+                    me be the change I wanted to see."</p>
+                <strong>– Fatima L., Education Campaign Volunteer</strong>
+            </div>
+
+            <div class="testimonial-card purple">
+                <p>"Helping organize elderly care events gave me a new appreciation for our elders. SRF is doing
+                    heartfelt work in that space."</p>
+                <strong>– Sunil D., Senior Citizen Care Volunteer</strong>
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -89,6 +404,59 @@
 
 
     <script src="script.js"></script>
+    <script>
+        document.querySelector(".form-container form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const btnText = document.getElementById("btnText");
+            const btnLoader = document.getElementById("btnLoader");
+            btnText.textContent = "Submitting...";
+            btnLoader.style.display = "inline-block"; // Show spinner
+
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                interest: document.getElementById("interest").value,
+                message: document.getElementById("message").value
+            };
+
+            const responseMessage = document.getElementById("responseMessage") || (() => {
+                const msg = document.createElement("p");
+                msg.id = "responseMessage";
+                this.appendChild(msg);
+                return msg;
+            })();
+
+            try {
+                const response = await fetch("volunteer.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    responseMessage.style.color = "green";
+                    responseMessage.textContent = result.message || "Message sent successfully!";
+                    this.reset();
+                } else {
+                    responseMessage.style.color = "red";
+                    responseMessage.textContent = result.message || "Error sending message.";
+                }
+            } catch (error) {
+                responseMessage.style.color = "red";
+                responseMessage.textContent = "Something went wrong. Please try again later.";
+                console.error("Error:", error);
+            }
+
+            // Restore button after request
+            btnText.textContent = "SUBMIT";
+            btnLoader.style.display = "none";
+        });
+
+    </script>
 </body>
 
 </html>
