@@ -103,6 +103,130 @@ li {
 
 
 
+/* mobile nav styling */
+/* Desktop Nav – assumed separate, not shown on mobile */
+/* #navbar {
+    display: block;
+} */
+/* Hamburger icon (Mobile Nav Toggle) */
+.nav-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    z-index: 1002;
+    cursor: pointer;
+    color: #000000;
+    background-color: #0dffa6;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Overlay covers the page when mobile nav is open */
+.nav-overlay {
+    display: none;
+    /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 100vw;
+    height: 100vh; */
+    /* background: rgba(0, 0, 0, 0.5); */
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.show {
+    display: block;
+}
+
+/* Mobile Navigation Menu */
+.mobile-nav {
+    display: none;
+    /* hidden by default */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #ccffe1;
+    z-index: 1001;
+    padding: 2rem 1rem;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+}
+
+.mobile-nav.open {
+    right: 0;
+}
+
+/* Close Button in mobile nav */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    /* hidden by default; shown when nav is open */
+    z-index: 1002;
+}
+
+/* Logo inside mobile nav */
+.mobile-nav .logo {
+    width: 180px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Mobile nav list */
+.mobile-nav ul {
+    list-style: none;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.mobile-nav ul li {
+    margin: 1rem 0;
+}
+
+.mobile-nav ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Donate button styling inside mobile nav */
+.donate-btn {
+    display: inline-block;
+    background: #6cbf4e;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Mobile Nav elements will only show below 768px */
+@media screen and (max-width: 849px) {
+    #navbar {
+        display: none;
+    }
+
+    .nav-toggle,
+    .mobile-nav,
+    .nav-overlay {
+        display: block;
+    }
+
+}
+
+
+
+
 /* footer styling */
 .footer {
     background: #ffffff;
@@ -192,7 +316,7 @@ li {
     color: #0077b5;
 }
 
-.social-icons a{
+.social-icons a {
     font-size: 25px;
 }
 

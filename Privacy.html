@@ -32,6 +32,17 @@
             text-align: center;
 
         }
+
+        @media screen and (max-width: 849px) {
+            .Privacy {
+                margin: 23% auto 5% auto;
+                max-width: 800px;
+                text-align: justify;
+                font-size: 18px;
+                font-weight: lighter;
+            }
+
+        }
     </style>
 </head>
 
@@ -50,6 +61,27 @@
 
             </div>
         </nav>
+
+        <!-- moblie nav from here onward -->
+        <!-- Hamburger Toggle Icon -->
+        <div id="hamburger" class="nav-toggle" onclick="openMobileNav()">☰</div>
+
+        <!-- Overlay (clicking closes mobile nav) -->
+        <div id="navOverlay" class="nav-overlay" onclick="closeMobileNav()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileNav" class="mobile-nav">
+            <div class="close-btn" onclick="closeMobileNav()">×</div>
+            <img src="images/logo.png" alt="Logo" class="logo" />
+            <ul>
+                <li><a href="index.html" onclick="closeMobileNav()">ABOUT</a></li>
+                <li><a href="ourwork.html" onclick="closeMobileNav()">OUR WORK</a></li>
+                <li><a href="campaings.html" onclick="closeMobileNav()">CAMPAIGNS</a></li>
+                <li><a href="getinvolved.html" onclick="closeMobileNav()">GET INVOLVED</a></li>
+                <li><a href="contact.html" onclick="closeMobileNav()">CONTACT US</a></li>
+                <a href="donate.html" class="donate-btn" onclick="closeMobileNav()">DONATE</a>
+            </ul>
+        </div>
     </header>
 
     <section class="section1" id="section1">

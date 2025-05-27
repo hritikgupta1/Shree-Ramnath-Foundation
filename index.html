@@ -42,7 +42,7 @@
             width: 100%;
             height: 100%;
             background: url("https://static.wixstatic.com/media/2cdbfc_cf1b36190dfc46598c48c7606bbc008a~mv2.jpg/v1/fill/w_2268,h_1229,al_c,q_90,enc_avif,quality_auto/2cdbfc_cf1b36190dfc46598c48c7606bbc008a~mv2.jpg") no-repeat center center/cover;
-            /* background-attachment: fixed; */
+            background-attachment: fixed;
             /* opacity: 0.7; */
             /* Adjust this value for desired transparency */
             z-index: -1;
@@ -366,13 +366,38 @@
             }
         }
 
-        
+
 
         @media screen and (min-width: 560px) and (max-width: 640px) {
             .impact-box {
                 flex: 1 1 200px;
                 max-width: 250px;
                 text-align: justify;
+            }
+        }
+
+        @media screen and (max-width: 849px) {
+            .section1 {
+                position: relative;
+                height: 80vh;
+                width: 100vw;
+                /* z-index: -1; */
+                /* Places it behind the content */
+                /* overflow: hidden; */
+                /* font-family: 'Poppins', sans-serif; */
+                margin: 0;
+                margin-top: 95px;
+                /* padding: 15px 0; */
+                /* height: 90vh; */
+                /* background-color: #0707075d; */
+                background-color: #0000009d;
+                /* color: #333; */
+                /* display: flex; */
+                /* align-items: center; */
+                /* justify-content: center; */
+                /* text-align: center; */
+                /* z-index: 1; */
+                padding: 30% 10px;
             }
         }
 
@@ -514,9 +539,30 @@
                 <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
                 <li><button onclick="window.location.href='donate.html'">DONATE</button></li>
 
-
             </div>
         </nav>
+
+        <!-- moblie nav from here onward -->
+        <!-- Hamburger Toggle Icon -->
+        <div id="hamburger" class="nav-toggle" onclick="openMobileNav()">☰</div>
+
+        <!-- Overlay (clicking closes mobile nav) -->
+        <div id="navOverlay" class="nav-overlay" onclick="closeMobileNav()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileNav" class="mobile-nav">
+            <div class="close-btn" onclick="closeMobileNav()">×</div>
+            <img src="images/logo.png" alt="Logo" class="logo" />
+            <ul>
+                <li><a href="index.html" onclick="closeMobileNav()">ABOUT</a></li>
+                <li><a href="ourwork.html" onclick="closeMobileNav()">OUR WORK</a></li>
+                <li><a href="campaings.html" onclick="closeMobileNav()">CAMPAIGNS</a></li>
+                <li><a href="getinvolved.html" onclick="closeMobileNav()">GET INVOLVED</a></li>
+                <li><a href="contact.html" onclick="closeMobileNav()">CONTACT US</a></li>
+                <a href="donate.html" class="donate-btn" onclick="closeMobileNav()">DONATE</a>
+            </ul>
+        </div>
+
     </header>
 
     <section class="section1" id="section1">

@@ -292,7 +292,8 @@
             }
 
         }
-        @media screen and (max-width: 620px){
+
+        @media screen and (max-width: 620px) {
             .hero::before {
                 content: "";
                 position: absolute;
@@ -310,21 +311,22 @@
 
             }
         }
+
         @media screen and (max-width: 849px) {
             .hero {
                 position: relative;
                 /* padding: 5rem 2rem 2rem; */
                 /* text-align: center; */
-                height: 50vh;
+                height: 80vh;
                 width: 100vw;
                 margin-top: 95px;
                 background: #191a197a;
                 color: white;
-                padding: 10% 10%;
+                padding: 50% 10%;
                 text-align: center;
             }
 
-            
+
         }
 
         @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -353,6 +355,27 @@
 
             </div>
         </nav>
+
+        <!-- moblie nav from here onward -->
+        <!-- Hamburger Toggle Icon -->
+        <div id="hamburger" class="nav-toggle" onclick="openMobileNav()">☰</div>
+
+        <!-- Overlay (clicking closes mobile nav) -->
+        <div id="navOverlay" class="nav-overlay" onclick="closeMobileNav()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileNav" class="mobile-nav">
+            <div class="close-btn" onclick="closeMobileNav()">×</div>
+            <img src="images/logo.png" alt="Logo" class="logo" />
+            <ul>
+                <li><a href="index.html" onclick="closeMobileNav()">ABOUT</a></li>
+                <li><a href="ourwork.html" onclick="closeMobileNav()">OUR WORK</a></li>
+                <li><a href="campaings.html" onclick="closeMobileNav()">CAMPAIGNS</a></li>
+                <li><a href="getinvolved.html" onclick="closeMobileNav()">GET INVOLVED</a></li>
+                <li><a href="contact.html" onclick="closeMobileNav()">CONTACT US</a></li>
+                <a href="donate.html" class="donate-btn" onclick="closeMobileNav()">DONATE</a>
+            </ul>
+        </div>
     </header>
 
     <section class="hero" id="hero">

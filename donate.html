@@ -215,6 +215,27 @@
 
             </div>
         </nav>
+
+        <!-- moblie nav from here onward -->
+        <!-- Hamburger Toggle Icon -->
+        <div id="hamburger" class="nav-toggle" onclick="openMobileNav()">☰</div>
+
+        <!-- Overlay (clicking closes mobile nav) -->
+        <div id="navOverlay" class="nav-overlay" onclick="closeMobileNav()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileNav" class="mobile-nav">
+            <div class="close-btn" onclick="closeMobileNav()">×</div>
+            <img src="images/logo.png" alt="Logo" class="logo" />
+            <ul>
+                <li><a href="index.html" onclick="closeMobileNav()">ABOUT</a></li>
+                <li><a href="ourwork.html" onclick="closeMobileNav()">OUR WORK</a></li>
+                <li><a href="campaings.html" onclick="closeMobileNav()">CAMPAIGNS</a></li>
+                <li><a href="getinvolved.html" onclick="closeMobileNav()">GET INVOLVED</a></li>
+                <li><a href="contact.html" onclick="closeMobileNav()">CONTACT US</a></li>
+                <a href="donate.html" class="donate-btn" onclick="closeMobileNav()">DONATE</a>
+            </ul>
+        </div>
     </header>
     <section class="payment" id="payment">
         <div class="container">
@@ -424,47 +445,6 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
-
-        // Function to load the scroll effect for nav when the page width is less than 849px
-        function scrollNav() {
-            const width = window.innerWidth;
-            const headerContainer = document.getElementById("navbar");
-
-            // Check if the page width is less than 816px
-            if (width < 849) {
-                let lastScrollTop = 0;
-                const nav = document.querySelector("nav");
-                const section1 = document.querySelector(".payment");
-
-                window.addEventListener("scroll", () => {
-                    const section1Bottom = section1.getBoundingClientRect().bottom;
-                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-                    // Trigger effect after scrolling past 1/8 of payment section
-                    if (section1Bottom <= window.innerHeight * 1.5) {
-                        if (currentScroll > lastScrollTop) {
-                            // Scrolling down
-                            // nav.style.top = "-100px";
-                            nav.style.top = "-400px";
-                        } else {
-                            // Scrolling up
-                            nav.style.top = "0";
-                        }
-                    } else {
-                        // Always show nav while in first half of section1
-                        nav.style.top = "0";
-                    }
-
-                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-                });
-            }
-        }
-
-        // Load the header on page load
-        window.onload = scrollNav;
-
-        // Load the header when the window is resized
-        window.onresize = scrollNav;
 
         // for auto adjusting margin-top for section1 according to nav height
 

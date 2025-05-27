@@ -332,6 +332,7 @@
             }
 
         }
+
         @media screen and (min-width: 850px) and (max-width: 1040px) {
             .OurWorkBkg img {
                 width: 100vw;
@@ -357,6 +358,27 @@
 
             </div>
         </nav>
+
+        <!-- moblie nav from here onward -->
+        <!-- Hamburger Toggle Icon -->
+        <div id="hamburger" class="nav-toggle" onclick="openMobileNav()">☰</div>
+
+        <!-- Overlay (clicking closes mobile nav) -->
+        <div id="navOverlay" class="nav-overlay" onclick="closeMobileNav()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileNav" class="mobile-nav">
+            <div class="close-btn" onclick="closeMobileNav()">×</div>
+            <img src="images/logo.png" alt="Logo" class="logo" />
+            <ul>
+                <li><a href="index.html" onclick="closeMobileNav()">ABOUT</a></li>
+                <li><a href="ourwork.html" onclick="closeMobileNav()">OUR WORK</a></li>
+                <li><a href="campaings.html" onclick="closeMobileNav()">CAMPAIGNS</a></li>
+                <li><a href="getinvolved.html" onclick="closeMobileNav()">GET INVOLVED</a></li>
+                <li><a href="contact.html" onclick="closeMobileNav()">CONTACT US</a></li>
+                <a href="donate.html" class="donate-btn" onclick="closeMobileNav()">DONATE</a>
+            </ul>
+        </div>
     </header>
 
     <div class="OurWorkBkg" id="OurWorkBkg">
@@ -715,48 +737,7 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
-        // Function to load the scroll effect for nav when the page width is less than 849px
-        function scrollNav() {
-            const width = window.innerWidth;
-            const headerContainer = document.getElementById("navbar");
-
-            // Check if the page width is less than 816px
-            if (width < 849) {
-                let lastScrollTop = 0;
-                const nav = document.querySelector("nav");
-                const section1 = document.querySelector(".OurWorkBkg");
-
-                window.addEventListener("scroll", () => {
-                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-                    // Get section1's position relative to document
-                    const section1Bottom = section1.offsetTop + section1.offsetHeight;
-
-                    if (currentScroll >= section1Bottom) {
-                        if (currentScroll > lastScrollTop) {
-                            // Scrolling down after section1 ends
-                            nav.style.top = "-400px"; // Hide nav
-                        } else {
-                            // Scrolling up
-                            nav.style.top = "0"; // Show nav
-                        }
-                    } else {
-                        // Before reaching the end of section1
-                        nav.style.top = "0"; // Always show nav
-                    }
-
-                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-                });
-            }
-        }
-
-        // Load the header on page load
-        window.onload = scrollNav;
-
-        // Load the header when the window is resized
-        window.onresize = scrollNav;
-
-        // -------###########--------
+        
 
         // for auto adjusting margin-top for section1 according to nav height
 
