@@ -192,6 +192,10 @@ li {
     color: #0077b5;
 }
 
+.social-icons a{
+    font-size: 25px;
+}
+
 .footer-right h4 {
     margin-bottom: 15px;
 }
@@ -300,5 +304,6 @@ li {
 
     .social-icons {
         text-align: center;
+        font-size: 0px;
     }
 }
