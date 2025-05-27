@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
-
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -273,12 +272,79 @@
             top: 50%;
             transform: translateY(-50%);
         }
+
+
+        /* responsive design here onwards */
+
+        @media screen and (max-width: 590px) {
+
+            .prev {
+                display: none;
+            }
+
+            .next {
+                display: none;
+            }
+
+            .close {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+
+            .close,
+            .prev,
+            .next {
+                position: absolute;
+                top: 20px;
+                font-size: 20px;
+                color: #fff;
+                cursor: pointer;
+                user-select: none;
+                padding: 10px 8px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 4px;
+            }
+
+            .prev {
+                left: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .next {
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .close {
+                right: 0px;
+            }
+
+        }
+
+        @media screen and (max-width: 849px) {
+            .OurWorkBkg img {
+                width: 100vw;
+                height: auto;
+            }
+
+        }
+        @media screen and (min-width: 850px) and (max-width: 1040px) {
+            .OurWorkBkg img {
+                width: 100vw;
+                height: 70vh;
+            }
+
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -293,7 +359,7 @@
         </nav>
     </header>
 
-    <div class="OurWorkBkg">
+    <div class="OurWorkBkg" id="OurWorkBkg">
         <img src="images/our_work_bkg.png" alt="Our Work">
 
     </div>
@@ -384,8 +450,7 @@
                     <div class="caption">Tree Plantation Drive</div>
                 </div>
                 <div class="gallery">
-                    <img src="images/dummy_img1.png" alt="Women Empowerment Training"
-                        class="gallery-item">
+                    <img src="images/dummy_img1.png" alt="Women Empowerment Training" class="gallery-item">
                     <div class="caption">Women Empowerment Workshop</div>
                 </div>
                 <div class="gallery">
@@ -490,7 +555,7 @@
         }
 
         // Scroll animation
-        
+
         const faders = document.querySelectorAll('.fade-on-scroll');
 
         const appearOptions = {
@@ -636,7 +701,8 @@
             if (section1Bottom <= window.innerHeight * 4) {
                 if (currentScroll > lastScrollTop) {
                     // Scrolling down
-                    nav.style.top = "-100px";
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
                 } else {
                     // Scrolling up
                     nav.style.top = "0";
@@ -648,6 +714,64 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // Function to load the scroll effect for nav when the page width is less than 849px
+        function scrollNav() {
+            const width = window.innerWidth;
+            const headerContainer = document.getElementById("navbar");
+
+            // Check if the page width is less than 816px
+            if (width < 849) {
+                let lastScrollTop = 0;
+                const nav = document.querySelector("nav");
+                const section1 = document.querySelector(".OurWorkBkg");
+
+                window.addEventListener("scroll", () => {
+                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                    // Get section1's position relative to document
+                    const section1Bottom = section1.offsetTop + section1.offsetHeight;
+
+                    if (currentScroll >= section1Bottom) {
+                        if (currentScroll > lastScrollTop) {
+                            // Scrolling down after section1 ends
+                            nav.style.top = "-400px"; // Hide nav
+                        } else {
+                            // Scrolling up
+                            nav.style.top = "0"; // Show nav
+                        }
+                    } else {
+                        // Before reaching the end of section1
+                        nav.style.top = "0"; // Always show nav
+                    }
+
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+            }
+        }
+
+        // Load the header on page load
+        window.onload = scrollNav;
+
+        // Load the header when the window is resized
+        window.onresize = scrollNav;
+
+        // -------###########--------
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("OurWorkBkg");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight - 20 + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
     </script>
 
 

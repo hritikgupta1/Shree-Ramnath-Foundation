@@ -31,6 +31,7 @@
             /* justify-content: center; */
             /* text-align: center; */
             /* z-index: 1; */
+            padding: 0 10px;
         }
 
         .section1::before {
@@ -143,6 +144,8 @@
             font-size: 16px;
             color: #555;
             line-height: 1.6;
+            text-align: justify;
+            /* padding: 5px; */
         }
 
 
@@ -182,8 +185,11 @@
         }
 
         .impact-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* display: flex;
+            flex-wrap: wrap; */
+            justify-items: center;
             justify-content: center;
             gap: 40px;
             max-width: 1200px;
@@ -322,6 +328,175 @@
         #section3 strong {
             color: #fff;
         }
+
+
+        /* responsive design from here onwards */
+
+        @media screen and (max-width: 377px) {
+            .section2 {
+
+                background-color: #e9fdea;
+                padding: 80px 20px;
+                font-family: 'Montserrat', sans-serif;
+                color: #333;
+            }
+        }
+
+        @media screen and (max-width: 559px) {
+            ul {
+                list-style-type: disc;
+                text-align: left;
+                padding-left: 0px;
+                margin: 0;
+            }
+
+        }
+
+
+        @media screen and (max-width: 720px) {
+            .mission-vision {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                margin-top: 50px;
+                gap: 30px;
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        
+
+        @media screen and (min-width: 560px) and (max-width: 640px) {
+            .impact-box {
+                flex: 1 1 200px;
+                max-width: 250px;
+                text-align: justify;
+            }
+        }
+
+        @media screen and (min-width: 560px) and (max-width: 969px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-items: center;
+            }
+
+            ul {
+                list-style-type: disc;
+                text-align: left;
+                padding-left: 0px;
+                margin: 0;
+            }
+
+            .icon img {
+                width: 175px;
+                height: auto;
+                /* margin-bottom: 20px; */
+            }
+        }
+
+        @media screen and (min-width: 560px) and (max-width: 720px) {
+            .icon img {
+                width: 150px;
+                height: auto;
+                /* margin-bottom: 20px; */
+            }
+
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 969px) {
+            .impact-container {
+                justify-content: center;
+                gap: 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+            }
+
+        }
+
+        @media screen and (min-width: 970px) {
+            .impact-container {
+                justify-content: center;
+                gap: 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(4, minmax(200px, 1fr));
+            }
+        }
+
+        @media screen and (min-width: 970px) and (max-width: 1039px) {
+            .icon img {
+                width: 150px;
+                height: auto;
+                /* margin-bottom: 20px; */
+            }
+
+            ul {
+                list-style-type: disc;
+                text-align: left;
+                padding-left: 0px;
+                margin: 0;
+            }
+
+            .column {
+                flex: 1;
+                min-width: 200px;
+                max-width: 300px;
+                padding: 40px 15px;
+                color: white;
+                border-radius: 10px;
+            }
+
+        }
+
+        @media screen and (min-width: 1040px) and (max-width: 1175px) {
+
+            .icon img {
+                width: 200px;
+                height: auto;
+                /* margin-bottom: 20px; */
+            }
+
+            ul {
+                list-style-type: disc;
+                text-align: left;
+                padding-left: 10px;
+                margin: 0;
+            }
+
+            .column {
+                flex: 1;
+                min-width: 200px;
+                max-width: 300px;
+                padding: 40px 15px;
+                color: white;
+                border-radius: 10px;
+            }
+
+        }
+
+        @media screen and (min-width: 1176px) and (max-width: 1300px) {
+            .icon img {
+                width: 200px;
+                height: auto;
+                /* margin-bottom: 20px; */
+            }
+
+            ul {
+                list-style-type: disc;
+                text-align: left;
+                padding-left: 0px;
+                margin: 0;
+            }
+        }
     </style>
 
 
@@ -329,7 +504,7 @@
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -344,7 +519,7 @@
         </nav>
     </header>
 
-    <section class="section1">
+    <section class="section1" id="section1">
         <div class="intro">
             <h1>CHANGE WITHIN TO CHANGE THE WORLD</h1>
             <p>SUSTAINABLE DEVELOPMENT GOALS | VOLUNTEERING | CREATIVE SOLUTIONS</p>
@@ -634,7 +809,8 @@
             if (section1Bottom <= window.innerHeight / 2) {
                 if (currentScroll > lastScrollTop) {
                     // Scrolling down
-                    nav.style.top = "-100px";
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
                 } else {
                     // Scrolling up
                     nav.style.top = "0";
@@ -646,6 +822,23 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("section1");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
+
+
     </script>
 </body>
 

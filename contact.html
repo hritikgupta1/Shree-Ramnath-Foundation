@@ -150,12 +150,23 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* responsive design from here onwards */
+
+        @media screen and (max-width: 849px) {
+            .section1 img {
+                width: 100vw;
+                height: auto;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -170,7 +181,7 @@
         </nav>
     </header>
 
-    <section class="section1">
+    <section class="section1" id="section1">
         <img src="images/contact_img.png" alt="contact">
 
     </section>
@@ -351,7 +362,7 @@
                 responseMessage.textContent = "An unexpected error occurred.";
                 console.error("Error:", error);
             }
-            
+
             // Restore button after request
             btnText.textContent = "SUBMIT";
             btnLoader.style.display = "none";
@@ -373,7 +384,8 @@
             if (section1Bottom <= window.innerHeight / 2) {
                 if (currentScroll > lastScrollTop) {
                     // Scrolling down
-                    nav.style.top = "-100px";
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
                 } else {
                     // Scrolling up
                     nav.style.top = "0";
@@ -386,6 +398,21 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("section1");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
     </script>
 </body>
 

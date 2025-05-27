@@ -37,7 +37,7 @@
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -52,7 +52,7 @@
         </nav>
     </header>
 
-    <section class="section1">
+    <section class="section1" id="section1">
         <div class="Privacy">
             <h1>Privacy Policy</h1>
             <br>
@@ -90,7 +90,8 @@
                 <li style="list-style: disc;">Third-Party Service Providers: We may share your information with trusted
                     third parties to assist in processing donations, delivering services, and marketing on our behalf.
                     <br>
-                    These parties are bound by strict data privacy agreements.</li>
+                    These parties are bound by strict data privacy agreements.
+                </li>
                 <li style="list-style: disc;">Legal Compliance: We may disclose your information when required by law or
                     to protect our rights, property, or safety.</li>
                 <li style="list-style: disc;">Consent: We will not share, sell, or lease your personal information to
@@ -214,7 +215,8 @@
             if (section1Bottom <= window.innerHeight * 2) {
                 if (currentScroll > lastScrollTop) {
                     // Scrolling down
-                    nav.style.top = "-100px";
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
                 } else {
                     // Scrolling up
                     nav.style.top = "0";
@@ -226,6 +228,21 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("section1");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
     </script>
 </body>
 

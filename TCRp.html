@@ -37,7 +37,7 @@
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -52,7 +52,7 @@
         </nav>
     </header>
 
-    <section class="section1">
+    <section class="section1" id="section1">
         <div class="TCRp">
             <h1>Terms, Conditions & Refund Policy</h1>
             <br>
@@ -243,7 +243,8 @@
             if (section1Bottom <= window.innerHeight * 3) {
                 if (currentScroll > lastScrollTop) {
                     // Scrolling down
-                    nav.style.top = "-100px";
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
                 } else {
                     // Scrolling up
                     nav.style.top = "0";
@@ -255,6 +256,21 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("section1");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
     </script>
 </body>
 

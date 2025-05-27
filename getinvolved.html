@@ -222,6 +222,8 @@
             }
         }
 
+        /* responsive design from here onwards */
+
 
         @media (max-width: 768px) {
             header h1 {
@@ -232,12 +234,64 @@
                 font-size: 1.5rem;
             }
         }
+
+        @media screen and (max-width: 620px) {
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url("images/getInvolved_bkg_img.jpg") no-repeat center/cover;
+                background-attachment: fixed;
+                /* opacity: 0.7; */
+                /* Adjust this value for desired transparency */
+                background-position: center 100px;
+                /* Shift down by 100px */
+                z-index: -1;
+
+            }
+
+        }
+
+        @media screen and (max-width: 849px) {
+            .hero {
+                position: relative;
+                /* padding: 5rem 2rem 2rem; */
+                /* text-align: center; */
+                height: 80vh;
+                width: 100vw;
+                margin-top: 95px;
+                background: #3838387a;
+                color: rgb(255, 255, 255);
+                padding: 15% 10%;
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+                /* max-width: 1000px; */
+                margin: auto;
+                background-color: #aeffb2;
+            }
+
+            .section-content {
+                padding: 5rem 1rem;
+                background-color: #e9fdea;
+                text-align: center;
+            }
+
+
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -251,7 +305,7 @@
             </div>
         </nav>
     </header>
-    <section class="hero">
+    <section class="hero" id="hero">
         <h1>Get Involved with Us</h1>
         <p>Your little effort can make a big difference.</p>
     </section>
@@ -455,6 +509,49 @@
             btnText.textContent = "SUBMIT";
             btnLoader.style.display = "none";
         });
+
+        // scrolling effect for nav bar
+
+        let lastScrollTop = 0;
+        const nav = document.querySelector("nav");
+        const section1 = document.querySelector(".section");
+
+        window.addEventListener("scroll", () => {
+            const section1Bottom = section1.getBoundingClientRect().bottom;
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Trigger effect after scrolling past 1/8 of payment section
+            if (section1Bottom <= window.innerHeight * 2) {
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
+                } else {
+                    // Scrolling up
+                    nav.style.top = "0";
+                }
+            } else {
+                // Always show nav while in first half of section1
+                nav.style.top = "0";
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("hero");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
 
     </script>
 </body>

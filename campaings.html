@@ -44,6 +44,7 @@
             padding: 10% 10%;
             text-align: center;
         }
+
         .hero::before {
             content: "";
             position: absolute;
@@ -58,7 +59,8 @@
             z-index: -1;
 
         }
-        
+
+
 
         .hero h1 {
             font-size: 2.5rem;
@@ -230,13 +232,115 @@
             top: 50%;
             transform: translateY(-50%);
         }
+
+        /* responsive design from here onwards */
+        /* responsive design here onwards */
+
+        @media screen and (max-width: 590px) {
+
+            .prev {
+                display: none;
+            }
+
+            .next {
+                display: none;
+            }
+
+            .close {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(1, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+
+            .close,
+            .prev,
+            .next {
+                position: absolute;
+                top: 20px;
+                font-size: 20px;
+                color: #fff;
+                cursor: pointer;
+                user-select: none;
+                padding: 10px 8px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 4px;
+            }
+
+            .prev {
+                left: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .next {
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .close {
+                right: 0px;
+            }
+
+        }
+        @media screen and (max-width: 620px){
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url("https://www.nea.org/sites/default/files/styles/1920wide/public/2020-07/2020-Join-a-campaign-3840x2160_0.jpg.webp?itok=2D_xk1CJ") no-repeat center/cover;
+                background-attachment: fixed;
+                /* opacity: 0.7; */
+                /* Adjust this value for desired transparency */
+                background-position: center 100px;
+                /* Shift down by 100px */
+                z-index: -1;
+
+            }
+        }
+        @media screen and (max-width: 849px) {
+            .hero {
+                position: relative;
+                /* padding: 5rem 2rem 2rem; */
+                /* text-align: center; */
+                height: 50vh;
+                width: 100vw;
+                margin-top: 95px;
+                background: #191a197a;
+                color: white;
+                padding: 10% 10%;
+                text-align: center;
+            }
+
+            
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+        }
     </style>
 
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <img src="images/logo.png" alt="logo" />
             <div class="nav_button">
                 <li><a href="index.html" class="nav-link">ABOUT</a></li>
@@ -251,7 +355,7 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <h1>Our Campaigns</h1>
         <p>Join our mission to create impactful change across communities through thoughtful initiatives.</p>
     </section>
@@ -540,7 +644,8 @@
             if (section1Bottom <= window.innerHeight / 1) {
                 if (currentScroll > lastScrollTop) {
                     // Scrolling down
-                    nav.style.top = "-100px";
+                    // nav.style.top = "-100px";
+                    nav.style.top = "-400px";
                 } else {
                     // Scrolling up
                     nav.style.top = "0";
@@ -552,6 +657,21 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        // for auto adjusting margin-top for section1 according to nav height
+
+        function adjustSectionMargin() {
+            const navbar = document.getElementById("navbar");
+            const section = document.getElementById("hero");
+
+            if (navbar && section) {
+                const navHeight = navbar.offsetHeight;
+                section.style.marginTop = navHeight + "px";
+            }
+        }
+
+        window.addEventListener("load", adjustSectionMargin);
+        window.addEventListener("resize", adjustSectionMargin);
     </script>
 </body>
 
