@@ -390,7 +390,7 @@
                 /* padding: 15px 0; */
                 /* height: 90vh; */
                 /* background-color: #0707075d; */
-                background-color: #0000009d;
+                /* background-color: #0000009d; */
                 /* color: #333; */
                 /* display: flex; */
                 /* align-items: center; */
@@ -399,6 +399,21 @@
                 /* z-index: 1; */
                 padding: 30% 10px;
             }
+
+.section1::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://static.wixstatic.com/media/2cdbfc_cf1b36190dfc46598c48c7606bbc008a~mv2.jpg/v1/fill/w_2268,h_1229,al_c,q_90,enc_avif,quality_auto/2cdbfc_cf1b36190dfc46598c48c7606bbc008a~mv2.jpg") no-repeat center center/cover;
+            background-attachment: fixed;
+            opacity: 0.8;
+            /* Adjust this value for desired transparency */
+            z-index: -1;
+
+        }
         }
 
         @media screen and (min-width: 560px) and (max-width: 969px) {
